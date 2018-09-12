@@ -1,0 +1,10 @@
+/* SimpleTabs: default style */
+
+div.simpleTabs { padding:0; }
+ul.simpleTabsNavigation { margin:0 0px; padding:0;}
+ul.simpleTabsNavigation li { list-style:none; display:inline; margin:0; padding:0; }
+ul.simpleTabsNavigation li a {padding:5px 8px; font-size:13px; text-decoration:none; font-family:Arial, Helvetica, sans-serif; color:#0088cf; }
+ul.simpleTabsNavigation li a:hover { text-decoration:none; font-family:Arial, Helvetica, sans-serif; }
+ul.simpleTabsNavigation li a.current { border-top:1px solid #E0E0E0; border-left:1px solid #E0E0E0; border-right:1px solid #E0E0E0; background:#fff; color:#666; border-bottom:1px solid #fff; }
+div.simpleTabsContent { border-top:1px solid #E0E0E0; padding:5px 15px 15px 15px; margin-top:3px; display:none; }
+div.simpleTabsContent.currentTab { display:block; }

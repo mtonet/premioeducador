@@ -1,0 +1,52 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Facebook Share Button</title>
+<style type="text/css">
+body {background-color:#f5f5f5; font:14px/150% 'century gothic', helvetica, arial}
+</style>
+</head>
+<body>
+<div id="fb-root"></div>
+<script type="text/javascript">
+window.fbAsyncInit = function () {
+	FB.init({
+		appId  : '111803635690137',
+		status : true, // check login status
+		cookie : true, // enable cookies to allow the server to access the session
+		xfbml  : true,  // parse XFBML
+		oauth  : true // enable OAuth 2.0
+	});
+};
+
+(function() {
+	var e = document.createElement('script');
+	e.src = document.location.protocol + '//connect.facebook.net/pt_BR/all.js';
+	e.async = true;
+	document.getElementById('fb-root').appendChild(e);
+}());
+</script>
+
+<div id="container">
+	<a id="share-button" href="#" title="Facebook Share Button" rel="alternate">COMPARTILHAR</a>
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+$('#share-button').click(function(e){
+	e.preventDefault();
+	FB.ui({
+		method: 'feed',
+		name: 'PRÊMIO VICTOR CIVITA - EDUCADOR NOTA 10',
+		link: ' http://www.premiovc.org.br/',
+		picture: 'http://www.fvc.org.br/premio-victor-civita/img/layout/selo-premio-2013.png',
+		caption: 'Estou participando do Prêmio Victor Civita 2014. Torça por mim!',
+		description: 'O Prêmio Victor Civita Educador Nota 10 é uma iniciativa da Fundação Victor Civita.'
+	});
+});
+</script>
+
+</body>
+</html>

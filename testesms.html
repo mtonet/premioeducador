@@ -1,0 +1,88 @@
+<br />Fomulario de contato&lt;/pre&gt;<br />&lt;form id="form1" action="send.php" method="post" name="form1"&gt;<br />&lt;h1&gt;Fomulário de contato&lt;/h1&gt;<br /><%%KEEPWHITESPACE%%>	&lt;label for="nome"&gt;Nome&lt;/label&gt;<br /><%%KEEPWHITESPACE%%>	&lt;input id="nome" type="text" name="nome" /&gt;<br /><br /><%%KEEPWHITESPACE%%>	&lt;label for="email"&gt;E-mail&lt;/label&gt;<br /><%%KEEPWHITESPACE%%>	&lt;input id="email" type="text" name="email" /&gt;<br /><br /><%%KEEPWHITESPACE%%>	&lt;label for="mensagem"&gt;Mensagem&lt;/label&gt;<br /><br /><%%KEEPWHITESPACE%%>	&lt;textarea id="mensagem" cols="45" name="mensagem" rows="5"&gt;&lt;/textarea&gt;<br /><br /><%%KEEPWHITESPACE%%>	&lt;input id="button" type="submit" name="button" value="Enviar" /&gt;&lt;/form&gt;<br />&lt;pre&gt;<br />[/html]
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<p>[php]<br />
+  function requisicaoApi($params, $endpoint)<br />
+  {<br />
+  <%%KEEPWHITESPACE%%>
+  $url = "http://api.directcallsoft.com/{$endpoint}";<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  $data = http_build_query($params);<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  $ch = 	curl_init();<br />
+  <%%KEEPWHITESPACE%%>	
+  curl_setopt($ch, CURLOPT_URL, $url);<br />
+  <%%KEEPWHITESPACE%%>	
+  curl_setopt($ch, CURLOPT_POST, true);<br />
+  <%%KEEPWHITESPACE%%>	
+  curl_setopt($ch, CURLOPT_POSTFIELDS, $data);<br />
+  <%%KEEPWHITESPACE%%>	
+  curl_setopt($ch, CURLOPT_HEADER, 0);<br />
+  <%%KEEPWHITESPACE%%>	
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  $return = curl_exec($ch);<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  curl_close($ch);<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  // Converte os dados de JSON para ARRAY<br />
+  <%%KEEPWHITESPACE%%>	
+  $dados = json_decode($return, true);<br />
+  <br />
+  <%%KEEPWHITESPACE%%>	
+  return $dados;<br />
+  }<br />
+  [/php]</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+[php]<br />// Monta a mensagem<br />$SMS = "Contato de: {$nome} - &lt;{$email}&gt; - {$mensagem}";<br /><br />// Array com os parametros para o envio<br /><br />$data = array(<br /><%%KEEPWHITESPACE%%>    'origem'=&gt;"Numero", // Seu numero que Ã© origem<br /><%%KEEPWHITESPACE%%>    'destino'=&gt;"Numero", // E o numero de destino<br /><%%KEEPWHITESPACE%%>    'tipo'=&gt;"texto",<br /><%%KEEPWHITESPACE%%>    'access_token'=&gt;$access_token,<br /><%%KEEPWHITESPACE%%>    'texto'=&gt;$SMS<br />);<br />// realiza o envio<br />$req_sms = requisicaoApi($data, "sms/send");<br />// FIM<br />[/php]
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+[php]<br /><br />// INICIO<br /><br />function requisicaoApi($params, $endpoint)<br />{<br /><%%KEEPWHITESPACE%%>	$url = "http://api.directcallsoft.com/{$endpoint}";<br /><br /><%%KEEPWHITESPACE%%>	$data = http_build_query($params);<br /><br /><%%KEEPWHITESPACE%%>	$ch = 	curl_init();<br /><%%KEEPWHITESPACE%%>	curl_setopt($ch, CURLOPT_URL, $url);<br />
+
+<%%KEEPWHITESPACE%%>	curl_setopt($ch, CURLOPT_POST, true);<br />
+
+<%%KEEPWHITESPACE%%>	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);<br />
+
+<%%KEEPWHITESPACE%%>	curl_setopt($ch, CURLOPT_HEADER, 0);<br />
+
+<%%KEEPWHITESPACE%%>	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);<br /><br />
+
+<%%KEEPWHITESPACE%%>	$return = curl_exec($ch);<br /><br />
+<%%KEEPWHITESPACE%%>	curl_close($ch);<br /><br />
+<%%KEEPWHITESPACE%%>	// Converte os dados de JSON para ARRAY<br />
+<%%KEEPWHITESPACE%%>	$dados = json_decode($return, true);<br /><br />
+<%%KEEPWHITESPACE%%>	return $dados;<br />}<br /><br />// CLIENT_ID que é fornecido pela DirectCall (Seu e-mail)<br />$client_id = "joaodasilva@minhaempresa.com.br";<br /><br />// CLIENT_SECRET que é fornecido pela DirectCall (Código recebido por SMS)<br />$client_secret = "XXXXXXX";<br /><br />// Faz a requisicao do access_token<br />$req = requisicaoApi(array('client_id'=&gt;$client_id, 'client_secret'=&gt;$client_secret), "request_token");<br /><br />//Seta uma variavel com o access_token<br />$access_token = $req['access_token'];<br /><br />// Enviadas via POST do nosso contato.html<br />$nome = $_POST['nome'];<br />$email = $_POST['email'];<br />$mensagem = $_POST['mensagem'];<br /><br />// Monta a mensagem<br />$SMS = "Contato de: {$nome} - &lt;{$email}&gt; - {$mensagem}";<br /><br />// Array com os parametros para o envio<br /><br />$data = array(<br />
+
+<%%KEEPWHITESPACE%%>    'origem'=&gt;"Numero", // Seu numero que Ã© origem<br />
+
+<%%KEEPWHITESPACE%%>    'destino'=&gt;"Numero", // E o numero de destino<br />
+
+<%%KEEPWHITESPACE%%>    'tipo'=&gt;"texto",<br />
+
+<%%KEEPWHITESPACE%%>    'access_token'=&gt;$access_token,<br />
+
+<%%KEEPWHITESPACE%%>    'texto'=&gt;$SMS<br />);<br />// realiza o envio
+
+<br />$req_sms = requisicaoApi($data, "sms/send");<br />// FIM<br /><br />[/php]
+
+Por

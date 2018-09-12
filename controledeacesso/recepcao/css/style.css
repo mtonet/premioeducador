@@ -1,0 +1,85 @@
+
+.main { width:980px; margin:0 auto; position:relative; margin-bottom:100px; }
+
+.fundo{background-color:#eef6f2;}
+
+.vip {position:absolute; top: 0; left:780px;}
+
+.logo {text-align:center;
+	padding: 0 0 50px 0;
+}
+
+.busca {
+	background:#c6d3ce;
+	height:140px;
+	width:500px;
+	border:1px #dcdedf solid;
+	margin:0 auto;
+}
+
+.pbusca {
+	text-align:center;
+	color:#314239;
+	font-family:Helvetica, Arial;
+	font-size:16px;
+	padding-top:20px
+}
+
+.busca input {
+	margin:10px 80px 40px 50px;
+	width:400px;
+}
+
+.botao {
+	text-align:center;
+	padding-top:50px;
+}
+
+
+
+.content-form {
+	margin:0 auto;
+	width:980px;
+}
+
+table {
+	font-family:Helvetica, Arial;
+	font-size:19px;
+	width:800px;
+	border:0;
+	color:#25613e;
+	margin-left:80px;
+	font-weight:100;
+}
+
+.txt {text-align:right;
+
+}
+
+.tdinput {padding-left:20px;}
+
+tr {height:50px;}
+
+.bfinalizar { 
+	margin-left:470px;
+	padding-top:20px;
+	float:left;
+}
+
+.sucesso { 
+	-webkit-border-radius: 5px;	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background:#60ac80;
+	font-family:Helvetica, Arial;
+	font-size:10px;
+	width:200px;
+	
+	float:left;
+	margin-top:20px;
+	margin-left:20px;
+	color:white;
+	padding:13px 0 10px 7px;
+}
+
+ 
