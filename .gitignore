@@ -1,0 +1,14 @@
+
+
+# Created by https://www.gitignore.io/api/premio
+
+### Premio ###
+
+dao/dao.class.php
+certificado.php
+marceo.html
+
+
+# End of https://www.gitignore.io/api/premio
+
+
