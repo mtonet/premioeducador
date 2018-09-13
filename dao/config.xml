@@ -1,0 +1,9 @@
+<?version 1.0 ?>
+<configuracao>
+    <banco>
+        <host>mysql03-farm25.uni5.net</host>
+        <usuario>inscricoespvc204</usuario>
+        <senha>pvc220</senha>
+        <database>inscricoespvc204</database>
+    </banco>
+</configuracao>
