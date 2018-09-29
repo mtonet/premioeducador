@@ -119,12 +119,14 @@ class ControleDeAcessoDAO {
 			 
 			 //pegar ativos e ultmo passo == 7
 			
-			$sql = "SELECT * FROM controle_de_acesso WHERE 1=1 ";
+			$sql = "SELECT * FROM controle_de_acesso WHERE 1=1";
 
 			//other filters
 
 			if($nome!='')
 				$sql .= 'AND nome like "%'.$nome.'%" ';
+
+			
 
 			if($codigo!='')
 				$sql .= 'AND codigo like "%'.$codigo.'%" ';

@@ -1,4 +1,4 @@
-<?php require_once(dirname(__FILE__).'/../../config.php'); ?>
+﻿<?php require_once(dirname(__FILE__).'/../../config.php'); ?>
 <!DOCTYPE html>
 <html lang="pt">
 	<head>
@@ -29,7 +29,7 @@
 
 				<div class="subnav" style="width: 248px">
 				<ul class="nav nav-pills">          
-					<li><a href="<?php echo SITE_URL; ?>controledeacesso/admin/dados-cadastrais.php">Convidados</a></li>
+					<li><a href="<?php echo SITE_URL; ?>controledeacesso/admin/dados-cadastrais.php?ordem=nome">Convidados</a></li>
                     <li><a href="<?php echo SITE_URL; ?>controledeacesso/admin/relatorios-controle-de-acesso.php">Relatórios</a></li>
                     <li><a href="<?php echo SITE_URL; ?>controledeacesso/admin/inserir-origem.php">Origem</a></li>
 				</ul>
